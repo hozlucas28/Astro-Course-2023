@@ -1,18 +1,4 @@
 {
-	"name": "astro-course-2023",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev --open",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"prepare": "husky install",
-		"prettier": "prettier --write . --plugin=prettier-plugin-astro"
-	},
-	"lint-staged": {
-		"**/*": "prettier --write --ignore-unknown"
-	},
 	"dependencies": {
 		"@astrojs/react": "^3.0.1",
 		"@astrojs/tailwind": "^5.0.0",
@@ -28,5 +14,20 @@
 		"lint-staged": "^14.0.1",
 		"prettier": "3.0.3",
 		"prettier-plugin-astro": "^0.12.0"
-	}
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	},
+	"name": "astro-course-2023",
+	"scripts": {
+		"astro": "astro",
+		"build": "astro build",
+		"dev": "astro dev --open",
+		"dev:network": "astro dev --host --open",
+		"prepare": "husky install",
+		"prettier": "prettier --write . --plugin=prettier-plugin-astro",
+		"preview": "astro preview"
+	},
+	"type": "module",
+	"version": "0.0.1"
 }

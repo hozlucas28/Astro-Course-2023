@@ -7,6 +7,15 @@
 	"htmlWhitespaceSensitivity": "css",
 	"insertPragma": false,
 	"jsxSingleQuote": true,
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		}
+	],
+	"plugins": ["prettier-plugin-astro"],
 	"printWidth": 125,
 	"proseWrap": "preserve",
 	"quoteProps": "as-needed",
@@ -17,14 +26,5 @@
 	"tabWidth": 2,
 	"trailingComma": "es5",
 	"useTabs": true,
-	"vueIndentScriptAndStyle": true,
-	"plugins": ["prettier-plugin-astro"],
-	"overrides": [
-		{
-			"files": "*.astro",
-			"options": {
-				"parser": "astro"
-			}
-		}
-	]
+	"vueIndentScriptAndStyle": true
 }
