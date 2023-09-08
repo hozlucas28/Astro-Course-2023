@@ -1,13 +1,24 @@
 ---
+import type { GetStaticPaths } from 'astro'
 import { getLaunchById } from '../../services/getlaunchbyid'
 import Layout from '../../layouts/layout.astro'
+import { getLaunches } from '../../services/getlaunches'
 
 const { id } = Astro.params
-export const prerender = false // SSR.
 
 let launch
 if (id) launch = await getLaunchById({ id })
 const formatedDetails = launch?.details ? (launch?.details.endsWith('.') ? launch?.details : `${launch?.details}.`) : null
+
+export const getStaticPaths = async () => {
+	const launches = await getLaunches()
+
+	return launches.map((launch) => ({
+		params: {
+			id: launch.id,
+		},
+	}))
+}
 ---
 
 <Layout title={`Launch #${launch?.flight_number}`}>
