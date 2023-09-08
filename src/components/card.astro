@@ -1,4 +1,5 @@
 ---
+import CardWrapper from './card-wrapper.astro'
 type Props = {
 	details: string | null
 	flightNumber: number
@@ -13,19 +14,16 @@ const successText = success ? 'Success' : 'Failure'
 const formatedDetails = details ? (details.endsWith('.') ? details : `${details}.`) : null
 ---
 
-<a
-	class:list={[
-		'flex-col rounded-lg border shadow-md bg-gray-800 border-gray-700 flex gap-8 transition-all ease-in-out duration-300 p-4',
-		{
-			'hover:scale-105 hover:bg-gray-700 hover:border-gray-500': formatedDetails,
-			'cursor-not-allowed hover:opacity-10': !formatedDetails,
-		},
-	]}
-	href={formatedDetails ? `/launch/${id}` : null}
+<CardWrapper
+	href={`/launch/${id}`}
+	hasDetails={formatedDetails === null}
 >
 	<picture>
 		<img
 			class='m-auto'
+			width={256}
+			height={256}
+			title={`Patch of launch number ${flightNumber}`}
 			src={img}
 			alt={`Patch for launch ${id}`}
 		/>
@@ -35,8 +33,8 @@ const formatedDetails = details ? (details.endsWith('.') ? details : `${details}
 			class:list={[
 				'text-xs font-semibold px-2.5 py-0.5 rounded w-fit',
 				{
-					'bg-green-400 text-green-900': success,
-					'bg-red-400 text-red-900': !success,
+					'bg-green-400 text-black': success,
+					'bg-red-400 text-black': !success,
 				},
 			]}
 		>
@@ -48,7 +46,7 @@ const formatedDetails = details ? (details.endsWith('.') ? details : `${details}
 
 		<p
 			class:list={[
-				'font-light text-gray-400 text-justify',
+				'font-light text-gray-300',
 				{
 					'line-clamp-3': formatedDetails,
 				},
@@ -57,4 +55,4 @@ const formatedDetails = details ? (details.endsWith('.') ? details : `${details}
 			{formatedDetails ?? 'No details available.'}
 		</p>
 	</header>
-</a>
+</CardWrapper>

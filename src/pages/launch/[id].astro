@@ -1,7 +1,6 @@
 ---
-import type { GetStaticPaths } from 'astro'
-import { getLaunchById } from '../../services/getlaunchbyid'
 import Layout from '../../layouts/layout.astro'
+import { getLaunchById } from '../../services/getlaunchbyid'
 import { getLaunches } from '../../services/getlaunches'
 
 const { id } = Astro.params
@@ -25,7 +24,7 @@ export const getStaticPaths = async () => {
 	<article class='justify-items-center flex flex-col'>
 		<h2 class='text-4xl text-white font-bold mb-4 w-full h-fit'>Launch #{launch?.flight_number}</h2>
 		<span class='flex flex-col sm:grid sm:grid-cols-3 gap-8'>
-			{formatedDetails ? <p class='text-lg text-justify break-words col-span-2'>{formatedDetails}</p> : null}
+			{formatedDetails ? <p class='text-lg break-words col-span-2 text-gray-300'>{formatedDetails}</p> : null}
 			{
 				launch?.links.patch.small ? (
 					<>

@@ -5,10 +5,13 @@ import HeaderButton from './header-button.astro'
 <header class='mx-auto max-w-xl flex flex-col gap-8 mb-8 sm:mb-16'>
 	<div class='text-center'>
 		<h2 class='mb-4 text-5xl tracking-tight font-extrabold text-white'>SpaceX Launches</h2>
-		<p class='font-light text-gray-500 sm:text-xl dark:text-gray-400'>Get the latest updates of SpaceX launches</p>
+		<p class='font-light text-gray-300 sm:text-xl'>Get the latest updates of SpaceX launches</p>
 	</div>
 	<nav class='flex flex-col items-center justify-stretch gap-4 w-full text-center md:flex-row'>
-		<HeaderButton href='/'>
+		<HeaderButton
+			href='/'
+			title='Go to home page'
+		>
 			<svg
 				slot='before'
 				width='24'
@@ -31,6 +34,11 @@ import HeaderButton from './header-button.astro'
 			</svg>
 			 Inicio
 		</HeaderButton>
-		<HeaderButton href='/blog/first-article'>About</HeaderButton>
+		<HeaderButton
+			href='/blog/first-article'
+			title='Go to about page'
+		>
+			About
+		</HeaderButton>
 	</nav>
 </header>

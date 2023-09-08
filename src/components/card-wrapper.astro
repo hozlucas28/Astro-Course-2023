@@ -1,0 +1,26 @@
+---
+type Props = {
+	hasDetails: boolean
+	href?: string
+}
+
+const { hasDetails, href } = Astro.props
+---
+
+<>
+	{
+		hasDetails ? (
+			<a
+				{href}
+				class='flex-col rounded-lg border shadow-md bg-gray-800 border-gray-700 flex gap-8 transition-all ease-in-out duration-300 p-4 hover:scale-105 hover:bg-gray-700 hover:border-gray-500'
+				title='Click to see more details'
+			>
+				<slot />
+			</a>
+		) : (
+			<article class='flex-col rounded-lg border shadow-md bg-gray-800 border-gray-700 flex gap-8 transition-all ease-in-out duration-300 p-4 cursor-not-allowed hover:opacity-10'>
+				<slot />
+			</article>
+		)
+	}
+</>
