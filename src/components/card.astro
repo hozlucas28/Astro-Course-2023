@@ -1,0 +1,60 @@
+---
+type Props = {
+	details: string | null
+	flightNumber: number
+	id: string
+	img: string
+	name: string
+	success: boolean
+}
+
+const { details, flightNumber, id, img, success } = Astro.props
+const successText = success ? 'Success' : 'Failure'
+const formatedDetails = details ? (details.endsWith('.') ? details : `${details}.`) : null
+---
+
+<a
+	class:list={[
+		'flex-col rounded-lg border shadow-md bg-gray-800 border-gray-700 flex gap-8 transition-all ease-in-out duration-300 p-4',
+		{
+			'hover:scale-105 hover:bg-gray-700 hover:border-gray-500': formatedDetails,
+			'cursor-not-allowed hover:opacity-10': !formatedDetails,
+		},
+	]}
+	href={formatedDetails ? `/launch/${id}` : null}
+>
+	<picture>
+		<img
+			class='m-auto'
+			src={img}
+			alt={`Patch for launch ${id}`}
+		/>
+	</picture>
+	<header class='flex-grow h-fit flex flex-col gap-2'>
+		<span
+			class:list={[
+				'text-xs font-semibold px-2.5 py-0.5 rounded w-fit',
+				{
+					'bg-green-400 text-green-900': success,
+					'bg-red-400 text-red-900': !success,
+				},
+			]}
+		>
+			{successText}
+		</span>
+		<h2 class='text-2xl font-bold tracking-tight text-white'>
+			Launch #{flightNumber}
+		</h2>
+
+		<p
+			class:list={[
+				'font-light text-gray-400 text-justify',
+				{
+					'line-clamp-3': formatedDetails,
+				},
+			]}
+		>
+			{formatedDetails ?? 'No details available.'}
+		</p>
+	</header>
+</a>

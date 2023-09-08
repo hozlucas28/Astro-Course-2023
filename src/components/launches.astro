@@ -1,0 +1,21 @@
+---
+import { getLaunches } from '../services/getlaunches'
+import Card from './card.astro'
+
+const launches = await getLaunches()
+---
+
+<div class='grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+	{
+		launches.map((launch) => (
+			<Card
+				details={launch.details}
+				flightNumber={launch.flight_number}
+				id={launch.id}
+				img={launch.links.patch.small}
+				name={launch.name}
+				success={launch.success}
+			/>
+		))
+	}
+</div>

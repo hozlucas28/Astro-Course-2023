@@ -1,0 +1,16 @@
+---
+type Props = {
+	href: string
+}
+
+const { href } = Astro.props
+---
+
+<a
+	class='border w-full bg-gray-800 border-gray-700 hover:border-none flex-row justify-center text-white cursor-pointer hover:bg-gray-700 focus:ring-4 focus:outline-none font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center hover:shadow-lg transition-all duration-300 hover:scale-110 scale-90 gap-x-2 opacity-70 hover:opacity-100 ease-in-out'
+	href={href}
+>
+	<slot name='before' />
+	<slot>Default Text</slot>
+	<slot name='after' />
+</a>

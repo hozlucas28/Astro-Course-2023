@@ -1,0 +1,55 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+
+type Props = {
+	title: string
+}
+
+const { title } = Astro.props
+const composedTitle = title ? `SpaceX Launches | ${title}` : 'SpaceX Launches'
+---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="copyright" content="Lucas Hoz" />
+    <meta name="robots" content="index, follow" />
+    <meta name="Author" lang="en" content="Lucas Hoz" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Experience the breathtaking marvels of SpaceX's rocket launches and space missions. Join us on a celestial journey beyond imagination." />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6eb2e2">
+    <meta name="apple-mobile-web-app-title" content={composedTitle}>
+    <meta name="application-name" content={composedTitle}>
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#6eb2e2">
+    <meta name="keywords" content="SpaceX, Rocket launches, Space missions, Recent launches, Space technology, Astronauts, Launch updates, Mission details, Space enthusiasts, Space achievements, Orbital missions, Space news" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacex-launches.vercel.app" />
+    <meta property="og:title" content={composedTitle} />
+    <meta property="og:description" content="Experience the breathtaking marvels of SpaceX's rocket launches and space missions. Join us on a celestial journey beyond imagination." />
+    <meta property="og:image" content="/preview.webp" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={composedTitle} />
+    <meta name="twitter:description" content="Experience the breathtaking marvels of SpaceX's rocket launches and space missions. Join us on a celestial journey beyond imagination." />
+    <meta name="twitter:image" content="/preview.webp" />
+    <meta name="twitter:image:alt" content="Preview of the SpaceX Launches web app." />
+
+    <title>{composedTitle}</title>
+    <ViewTransitions />
+
+    <style is:global>
+		html {
+			background-size: 224px;
+			background: #13151a;
+			color-scheme: dark light;
+			font-family: system-ui, sans-serif;
+		}
+	</style>
+</head>

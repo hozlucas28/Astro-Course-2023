@@ -1,0 +1,35 @@
+---
+import { getLaunchById } from '../../services/getlaunchbyid'
+import Layout from '../../layouts/layout.astro'
+
+const { id } = Astro.params
+export const prerender = false // SSR.
+
+let launch
+if (id) launch = await getLaunchById({ id })
+const formatedDetails = launch?.details ? (launch?.details.endsWith('.') ? launch?.details : `${launch?.details}.`) : null
+---
+
+<Layout title={`Launch #${launch?.flight_number}`}>
+	<article class='justify-items-center flex flex-col'>
+		<h2 class='text-4xl text-white font-bold mb-4 w-full h-fit'>Launch #{launch?.flight_number}</h2>
+		<span class='flex flex-col sm:grid sm:grid-cols-3 gap-8'>
+			{formatedDetails ? <p class='text-lg text-justify break-words col-span-2'>{formatedDetails}</p> : null}
+			{
+				launch?.links.patch.small ? (
+					<>
+						<span class='p-2 border-8 col-start-3 border-gray-800 bg-gray-950 flex flex-col gap-4 w-fit h-fit mx-auto'>
+							<img
+								class='w-52 h-auto'
+								src={launch?.links.patch.small}
+							/>
+							<div class='text-xs w-fit font-semibold mx-auto px-2.5 py-0.5 rounded bg-green-400 text-green-900'>
+								Success
+							</div>
+						</span>
+					</>
+				) : null
+			}
+		</span>
+	</article>
+</Layout>
