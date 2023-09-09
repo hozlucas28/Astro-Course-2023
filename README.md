@@ -29,7 +29,7 @@
     Installation
 </h2>
 <p>
-    [TODO]
+    Clone the repository, install <a href="https://nodejs.org/es/" target="_blank">Node.js</a> (runtime environment) and use <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> (code editor). Then, run command <code>pnpm install</code> to install all packages used in this repository. Now, runs <code>pnpm run dev</code> or <code>pnpm run dev:network</code> in your terminal to check this Astro course in your machine.
 </p>
 
 <h2>
