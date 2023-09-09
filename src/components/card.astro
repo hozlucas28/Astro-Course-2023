@@ -16,7 +16,7 @@ const formatedDetails = details ? (details.endsWith('.') ? details : `${details}
 
 <CardWrapper
 	href={`/launch/${id}`}
-	hasDetails={formatedDetails === null}
+	hasDetails={formatedDetails !== null}
 >
 	<picture>
 		<img
