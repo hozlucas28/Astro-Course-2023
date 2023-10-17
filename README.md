@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/hozlucas28/NodeJS-Course-II-2023/assets/88015479/6d9ffd57-74c4-4be3-9f42-478f6083b1c8" width="425">
+    <img src="./.github/astro-logo.png" width="425">
 </p>
 
 <h2>
