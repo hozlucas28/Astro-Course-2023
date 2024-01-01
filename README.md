@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-    Repository of <a href="#" target="_blank">Astro course<a> of <a href="https://www.linkedin.com/in/midudev/" target="_blank">Midudev</a>.
+    Repository of <a href="https://youtu.be/RB5tR_nqUEw?si=QO91l-lAEHpGrJAL" target="_blank">Astro course<a> of <a href="https://www.linkedin.com/in/midudev/" target="_blank">Midudev</a>.
 </h4>
 
 <p align="center">
